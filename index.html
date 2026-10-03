@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyFlow | Student Study Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">S</div>
+
+            <div>
+                <h2>StudyFlow</h2>
+                <span>Study smarter</span>
+            </div>
+        </div>
+
+
+        <nav class="navigation">
+
+            <button class="nav-item active" data-section="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-section="tasks">
+                <span>✓</span>
+                My Tasks
+            </button>
+
+            <button class="nav-item" data-section="subjects">
+                <span>▣</span>
+                Subjects
+            </button>
+
+            <button class="nav-item" data-section="progress">
+                <span>◔</span>
+                Progress
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="nav-item" id="themeBtn">
+                <span id="themeIcon">☾</span>
+                Dark Mode
+            </button>
+
+            <div class="quote">
+                <strong>Keep going!</strong>
+                <p>Small progress every day leads to big results.</p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+                <div class="brand-icon">S</div>
+                <strong>StudyFlow</strong>
+            </div>
+
+            <div class="page-heading">
+                <h1 id="pageTitle">Dashboard</h1>
+                <p id="pageSubtitle">Organize your learning and stay productive.</p>
+            </div>
+
+
+            <div class="top-actions">
+
+                <button class="icon-btn" id="themeBtnMobile">
+                    ☾
+                </button>
+
+                <div class="profile">
+
+                    <div class="avatar">M</div>
+
+                    <div class="profile-info">
+                        <strong>Student</strong>
+                        <span>Keep learning 🚀</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================= DASHBOARD ================= -->
+
+        <section id="dashboard" class="page-section active-section">
+
+            <!-- HERO -->
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <span class="hero-label">GOOD MORNING 👋</span>
+
+                    <h2>Ready to study?</h2>
+
+                    <p>
+                        Plan your tasks, track your progress and
+                        make every study session count.
+                    </p>
+
+                    <button class="primary-btn" id="heroAddBtn">
+                        + Add New Task
+                    </button>
+
+                </div>
+
+                <div class="hero-decoration">
+                    📚
+                </div>
+
+            </div>
+
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">✓</div>
+
+                    <div>
+                        <span>Total Tasks</span>
+                        <strong id="totalTasks">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">!</div>
+
+                    <div>
+                        <span>Pending</span>
+                        <strong id="pendingTasks">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">✓</div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="completedTasks">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">◔</div>
+
+                    <div>
+                        <span>Progress</span>
+                        <strong id="progressPercent">0%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DASHBOARD CONTENT -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- TASKS -->
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h3>Today's Tasks</h3>
+                            <p>Stay on top of your study goals.</p>
+                        </div>
+
+                        <button class="text-btn" id="viewAllBtn">
+                            View All →
+                        </button>
+
+                    </div>
+
+
+                    <div id="dashboardTaskList" class="task-list">
+
+                        <div class="empty-state">
+                            <div>📝</div>
+                            <h4>No tasks yet</h4>
+                            <p>Add your first study task to get started.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROGRESS -->
+
+                <div class="panel progress-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <h3>My Progress</h3>
+                            <p>Your overall completion.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-ring"
+                         id="progressRing">
+
+                        <div class="ring-inner">
+
+                            <strong id="ringPercent">0%</strong>
+
+                            <span>Completed</span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-message" id="progressMessage">
+                        Start your first task today! 🌱
+                    </div>
+
+
+                    <div class="mini-progress">
+
+                        <div>
+                            <span>Completed</span>
+                            <strong id="miniCompleted">0</strong>
+                        </div>
+
+                        <div>
+                            <span>Remaining</span>
+                            <strong id="miniRemaining">0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= TASKS PAGE ================= -->
+
+        <section id="tasks" class="page-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>Manage all your study tasks.</p>
+                </div>
+
+                <button class="primary-btn" id="taskPageAddBtn">
+                    + Add Task
+                </button>
+
+            </div>
+
+
+            <div class="task-toolbar">
+
+                <div class="search-box">
+                    🔍
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tasks..."
+                    >
+                </div>
+
+
+                <select id="filterSelect">
+
+                    <option value="all">All Tasks</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+
+                </select>
+
+            </div>
+
+
+            <div id="allTaskList" class="full-task-list"></div>
+
+        </section>
+
+
+
+        <!-- ================= SUBJECTS PAGE ================= -->
+
+        <section id="subjects" class="page-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>My Subjects</h2>
+                    <p>Keep your subjects organized.</p>
+                </div>
+
+            </div>
+
+
+            <div class="subjects-grid">
+
+                <div class="subject-card">
+                    <div class="subject-icon purple-bg">CD</div>
+                    <h3>Compiler Design</h3>
+                    <p>Parsing, grammars & compilers</p>
+                </div>
+
+
+                <div class="subject-card">
+                    <div class="subject-icon blue-bg">DM</div>
+                    <h3>Data Mining</h3>
+                    <p>Classification & data analysis</p>
+                </div>
+
+
+                <div class="subject-card">
+                    <div class="subject-icon green-bg">JS</div>
+                    <h3>JavaScript</h3>
+                    <p>Web development practice</p>
+                </div>
+
+
+                <div class="subject-card">
+                    <div class="subject-icon orange-bg">AJ</div>
+                    <h3>Advanced Java</h3>
+                    <p>Java web technologies</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PROGRESS PAGE ================= -->
+
+        <section id="progress" class="page-section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Progress Overview</h2>
+                    <p>See how much you've accomplished.</p>
+                </div>
+
+            </div>
+
+
+            <div class="big-progress-card">
+
+                <div class="big-ring" id="bigRing">
+
+                    <div>
+                        <strong id="bigRingPercent">0%</strong>
+                        <span>Overall Progress</span>
+                    </div>
+
+                </div>
+
+
+                <div class="progress-details">
+
+                    <div>
+                        <span>Total Tasks</span>
+                        <strong id="progressTotal">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong id="progressDone">0</strong>
+                    </div>
+
+                    <div>
+                        <span>Remaining</span>
+                        <strong id="progressRemaining">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= ADD TASK MODAL ================= -->
+
+    <div class="modal" id="taskModal">
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="modal-label">NEW TASK</span>
+                    <h2>Create a study task</h2>
+                </div>
+
+                <button class="close-btn" id="closeModal">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="taskForm">
+
+                <label for="taskName">
+                    Task Name
+                </label>
+
+                <input
+                    type="text"
+                    id="taskName"
+                    placeholder="e.g. Study FIRST and FOLLOW"
+                    required
+                >
+
+
+                <label for="taskDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="taskDescription"
+                    placeholder="What do you need to complete?"
+                    rows="3"
+                ></textarea>
+
+
+                <label for="taskSubject">
+                    Subject
+                </label>
+
+                <select id="taskSubject">
+
+                    <option value="Compiler Design">
+                        Compiler Design
+                    </option>
+
+                    <option value="Data Mining">
+                        Data Mining
+                    </option>
+
+                    <option value="JavaScript">
+                        JavaScript
+                    </option>
+
+                    <option value="Advanced Java">
+                        Advanced Java
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+
+                <label for="taskPriority">
+                    Priority
+                </label>
+
+                <select id="taskPriority">
+
+                    <option value="Low">Low</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="High">High</option>
+
+                </select>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        id="cancelModal"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="save-btn"
+                    >
+                        Add Task
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>
